@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authReducer from './slices/authSlice';
 import stationReducer from './slices/stationSlice';
 import lineReducer from './slices/lineSlice';
@@ -9,6 +9,12 @@ export const store = configureStore({
     station: stationReducer,
     line: lineReducer,
   },
+});
+
+export const reducers = combineReducers({
+  auth: authReducer,
+  station: stationReducer,
+  line: lineReducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;
